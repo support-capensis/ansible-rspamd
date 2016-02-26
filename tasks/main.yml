@@ -17,8 +17,8 @@
   with_items: [ '/etc/rspamd' ]
 
 - name: Configure main rmilter config file
-  copy:
-    src: 'etc/rmilter.conf'
+  template:
+    src: 'etc/rmilter.conf.j2'
     dest: '/etc/rmilter.conf'
     owner: 'root'
     group: '_rmilter'
