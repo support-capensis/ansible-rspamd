@@ -1,0 +1,11 @@
+---
+# vars file for rspamd
+postfix_dependent_maincf:
+  - param: 'smtpd_milters'
+    value: 'inet:localhost:11000'
+  - param: 'milter_protocol'
+    value: '6'
+  - param: 'milter_mail_macros'
+    value: 'i {mail_addr} {client_addr} {client_name} {auth_authen}'
+  - param: 'milter_default_action'
+    value: 'accept'

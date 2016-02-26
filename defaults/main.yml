@@ -1,0 +1,19 @@
+---
+# defaults file for rspamd
+
+# -------------------------------
+#   Rspamd/Rmilter options
+# -------------------------------
+
+# .. envvar:: rspamd_packages
+#
+# List of packages to be installed with rspamd
+
+rspamd_packages: [ 'rspamd', 'rmilter', 'memcached' ]
+
+# .. envvar:: postfix_rmilter_com
+#
+# How rmilter shoult listen
+postfix_rmilter_bind: 'inet'
+
+

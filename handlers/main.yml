@@ -1,0 +1,7 @@
+---
+# handlers file for rspamd
+- name: Restart rmilter
+  service:
+    name: 'rmilter'
+    state: 'restarted'
+

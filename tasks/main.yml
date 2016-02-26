@@ -1,0 +1,26 @@
+---
+# tasks file for rspamd
+- name: Ensure rspamd is installed
+  apt:
+    name: '{{ item }}'
+    state: 'present'
+    install_recommends: 'no'
+  with_items: rspamd_packages
+
+- name: Make sure required directories exist
+  file:
+    path: '{{ item }}'
+    state: 'directory'
+    owner: 'root'
+    group: 'adm'
+    mode: '2750'
+  with_items: [ '/etc/rspamd' ]
+
+- name: Configure main rmilter config file
+  copy:
+    src: 'etc/rmilter.conf'
+    dest: '/etc/rmilter.conf'
+    owner: 'root'
+    group: '_rmilter'
+    mode: '0664'
+  notify: [ 'Restart rmilter' ]

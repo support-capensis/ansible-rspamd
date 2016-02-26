@@ -1,0 +1,12 @@
+---
+galaxy_info:
+  author: Émile Morel
+  description: install and configure rspamd to work with postfix
+  license: GPLv3
+  platforms:
+  - name: Debian
+    versions:
+    - all
+dependencies: 
+  - 'debops.dovecot'
+ 
