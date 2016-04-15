@@ -1,10 +1,19 @@
 ---
 # tasks file for rspamd
+- name: Add rspamd official repo
+  template:
+    src: 'etc/rspamd.list.j2'
+    dest: '/etc/apt/sources.list.d/rspamd.list'
+    owner: 'root'
+    group: 'root'
+    mode: '0664'
+    
 - name: Ensure rspamd is installed
   apt:
     name: '{{ item }}'
     state: 'present'
     install_recommends: 'no'
+    update_cache: yes
   with_items: rspamd_packages
 
 - name: Make sure required directories exist
