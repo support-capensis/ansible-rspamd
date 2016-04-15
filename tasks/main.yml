@@ -12,6 +12,7 @@
   apt_key: 
     url: https://rspamd.com/apt-stable/gpg.key
     state: present
+    validate_certs: yes
 
 - name: Ensure rspamd is installed
   apt:
